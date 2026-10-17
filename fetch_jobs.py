@@ -18,13 +18,10 @@ if not RAPIDAPI_KEY:
     sys.exit("ERROR: RAPIDAPI_KEY environment variable is not set.")
 
 SEARCH_QUERIES = [
-    "Project Manager construction Toronto",
-    "Assistant Project Manager GTA Ontario",
-    "Project Coordinator infrastructure Toronto",
-    "Construction Project Manager Ontario",
-    "Project Controls Coordinator Toronto",
-    "Senior Project Manager civil Toronto",
-    "Project Scheduler Primavera Toronto",
+    "Project Manager construction",
+    "Assistant Project Manager infrastructure",
+    "Project Coordinator civil engineering",
+    "Project Scheduler Primavera P6",
 ]
 
 # ── SCORING WEIGHTS ───────────────────────────────────────────────────────────
@@ -61,22 +58,28 @@ SALARY_BOOST = {
 
 # ── JSearch API CALL ──────────────────────────────────────────────────────────
 def fetch_jobs_for_query(query: str) -> list[dict]:
+    import urllib.parse
     conn = http.client.HTTPSConnection("jsearch.p.rapidapi.com")
     headers = {
         "x-rapidapi-key": RAPIDAPI_KEY,
         "x-rapidapi-host": "jsearch.p.rapidapi.com",
     }
-    # URL-encode query
-    encoded = query.replace(" ", "%20")
-    path = f"/search?query={encoded}&location=Toronto%2C%20Ontario%2C%20Canada&date_posted=month&num_pages=1&page=1"
+    # Embed location in query for best JSearch results
+    full_query = f"{query} Toronto Ontario Canada"
+    encoded = urllib.parse.quote(full_query)
+    path = f"/search?query={encoded}&date_posted=month&num_pages=2&page=1&country=ca"
     conn.request("GET", path, headers=headers)
     res = conn.getresponse()
     raw = res.read()
+    print(f"    HTTP {res.status} ({len(raw)} bytes)")
     try:
         data = json.loads(raw)
+        if data.get("status") != "OK":
+            print(f"    API error: {data.get('message', data.get('status', 'unknown'))}")
         return data.get("data", [])
     except Exception as e:
         print(f"  Warning: could not parse response for '{query}': {e}")
+        print(f"  Raw: {raw[:200]}")
         return []
 
 
