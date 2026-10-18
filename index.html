@@ -5,17 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>GTA PM Job Search — Hani Juzer</title>
 <style>
-  :root{
-    --navy:#0D1F3C;--accent:#E8A020;--accentL:#FEF3C7;
-    --teal:#0E7490;--tealL:#CFFAFE;--bg:#F0F4F8;--card:#FFFFFF;
-    --g1c:#065F46;--g1b:#D1FAE5;--g2c:#92400E;--g2b:#FEF3C7;
-    --g3c:#1E40AF;--g3b:#DBEAFE;--muted:#64748B;--border:#E2E8F0;
-  }
-  *{box-sizing:border-box;}
-  body{margin:0;font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;background:var(--bg);color:#1E293B;}
+  :root{--navy:#0D1F3C;--accent:#E8A020;--accentL:#FEF3C7;--teal:#0E7490;--tealL:#CFFAFE;--bg:#F0F4F8;--card:#FFFFFF;--g1c:#065F46;--g1b:#D1FAE5;--g2c:#92400E;--g2b:#FEF3C7;--g3c:#1E40AF;--g3b:#DBEAFE;--muted:#64748B;--border:#E2E8F0;}
+  *{box-sizing:border-box;} body{margin:0;font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;background:var(--bg);color:#1E293B;}
   .header{background:var(--navy);color:#fff;padding:20px 32px;}
-  .header h1{margin:0;font-size:22px;font-weight:800;letter-spacing:-0.02em;}
-  .header h1 span{color:var(--accent);}
+  .header h1{margin:0;font-size:22px;font-weight:800;letter-spacing:-0.02em;} .header h1 span{color:var(--accent);}
   .header p{margin:4px 0 0;font-size:13px;color:#94A3B8;}
   .update-badge{display:inline-block;background:var(--g1b);color:var(--g1c);font-size:11px;font-weight:700;padding:3px 10px;border-radius:99px;margin-top:8px;}
   .nav{background:var(--card);border-bottom:1px solid var(--border);padding:0 32px;display:flex;gap:2px;overflow-x:auto;}
@@ -45,86 +38,56 @@
   .job-rank{background:var(--navy);color:var(--accent);font-size:11px;font-weight:800;width:24px;height:24px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;}
   .job-title{font-weight:700;font-size:15px;color:var(--navy);}
   .job-meta{margin:0;font-size:13px;color:var(--muted);}
-  .job-right{text-align:right;flex-shrink:0;}
-  .toggle-btn{margin-top:6px;font-size:12px;color:var(--teal);background:none;border:none;cursor:pointer;font-weight:700;font-family:inherit;display:block;}
-  .job-details{margin-top:14px;padding-top:14px;border-top:1px solid var(--border);display:none;}
-  .job-card.open .job-details{display:block;}
-  .desc-box{font-size:13px;color:#374151;line-height:1.7;max-height:200px;overflow-y:auto;background:var(--bg);padding:12px 14px;border-radius:8px;margin-bottom:14px;white-space:pre-wrap;}
-  .links-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px;}
-  .btn-apply{padding:8px 18px;background:var(--accent);color:var(--navy);font-weight:800;font-size:13px;border-radius:8px;text-decoration:none;}
-  .btn-company{padding:8px 18px;border:1.5px solid var(--border);color:var(--navy);font-weight:600;font-size:13px;border-radius:8px;text-decoration:none;}
+  .job-right{text-align:right;flex-shrink:0;display:flex;flex-direction:column;align-items:flex-end;gap:6px;}
+  .apply-btn{display:inline-block;padding:6px 14px;background:var(--accent);color:var(--navy);font-weight:800;font-size:12px;border-radius:7px;text-decoration:none;}
   .kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;}
   .kpi-card{text-align:center;padding:16px 12px;}
-  .kpi-card .icon{font-size:26px;}
-  .kpi-card .val{font-size:30px;font-weight:800;color:var(--navy);margin:4px 0;}
-  .kpi-card .lbl{font-size:11px;color:var(--muted);font-weight:600;}
+  .kpi-card .icon{font-size:26px;} .kpi-card .val{font-size:30px;font-weight:800;color:var(--navy);margin:4px 0;} .kpi-card .lbl{font-size:11px;color:var(--muted);font-weight:600;}
   .strengths-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
   .strength-item{background:var(--g1b);border-radius:8px;padding:12px 14px;border-left:3px solid var(--g1c);}
-  .strength-item p.t{margin:0 0 4px;font-weight:700;font-size:13px;color:var(--g1c);}
-  .strength-item p.n{margin:0;font-size:12px;color:#374151;line-height:1.5;}
-  table{width:100%;border-collapse:collapse;font-size:13px;}
-  thead tr{background:var(--navy);color:#fff;}
-  th{padding:8px 12px;text-align:left;font-size:12px;font-weight:700;}
-  td{padding:9px 12px;}
-  tbody tr{border-bottom:1px solid var(--border);}
-  tbody tr:nth-child(even){background:var(--bg);}
-  tbody tr:nth-child(odd){background:var(--card);}
+  .strength-item p.t{margin:0 0 4px;font-weight:700;font-size:13px;color:var(--g1c);} .strength-item p.n{margin:0;font-size:12px;color:#374151;line-height:1.5;}
+  table{width:100%;border-collapse:collapse;font-size:13px;} thead tr{background:var(--navy);color:#fff;}
+  th{padding:8px 12px;text-align:left;font-size:12px;font-weight:700;} td{padding:9px 12px;}
+  tbody tr{border-bottom:1px solid var(--border);} tbody tr:nth-child(even){background:var(--bg);} tbody tr:nth-child(odd){background:var(--card);}
   .urgency{padding:2px 9px;border-radius:99px;font-size:11px;font-weight:700;}
-  .u-High{background:#FEE2E2;color:#991B1B;}
-  .u-Medium{background:var(--g2b);color:var(--g2c);}
-  .u-Low{background:var(--g3b);color:var(--g3c);}
+  .u-High{background:#FEE2E2;color:#991B1B;} .u-Medium{background:var(--g2b);color:var(--g2c);} .u-Low{background:var(--g3b);color:var(--g3c);}
   .prob{padding:2px 9px;border-radius:99px;font-size:11px;font-weight:700;}
-  .p-VeryHigh{background:var(--g1b);color:var(--g1c);}
-  .p-High{background:var(--tealL);color:var(--teal);}
-  .p-Moderate{background:var(--g2b);color:var(--g2c);}
+  .p-VeryHigh{background:var(--g1b);color:var(--g1c);} .p-High{background:var(--tealL);color:var(--teal);} .p-Moderate{background:var(--g2b);color:var(--g2c);}
   .readiness-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;}
-  .r-item{text-align:center;}
-  .r-item .num{font-size:28px;font-weight:800;}
-  .r-item .lbl{font-size:12px;color:var(--muted);font-weight:600;}
+  .r-item{text-align:center;} .r-item .num{font-size:28px;font-weight:800;} .r-item .lbl{font-size:12px;color:var(--muted);font-weight:600;}
   .two-col{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
   .plan-row{display:flex;gap:12px;margin-bottom:10px;align-items:flex-start;}
   .plan-day{font-weight:800;font-size:11px;padding:3px 8px;border-radius:6px;flex-shrink:0;}
-  .d-apply{background:var(--g1b);color:var(--g1c);}
-  .d-network{background:var(--tealL);color:var(--teal);}
-  .d-prep{background:var(--accentL);color:var(--g2c);}
+  .d-apply{background:var(--g1b);color:var(--g1c);} .d-network{background:var(--tealL);color:var(--teal);} .d-prep{background:var(--accentL);color:var(--g2c);}
   .plan-footer{margin-top:14px;padding:10px 14px;background:var(--bg);border-radius:8px;font-size:12px;color:var(--muted);}
   .rec-row{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid var(--border);}
   .rec-row:last-of-type{border-bottom:none;}
-  .rec-row .name{margin:0;font-weight:700;font-size:13px;color:var(--navy);}
-  .rec-row .focus{margin:2px 0 0;font-size:12px;color:var(--muted);}
-  .rec-row a{font-size:12px;color:var(--teal);font-weight:700;text-decoration:none;}
+  .rec-row .name{margin:0;font-weight:700;font-size:13px;color:var(--navy);} .rec-row .focus{margin:2px 0 0;font-size:12px;color:var(--muted);} .rec-row a{font-size:12px;color:var(--teal);font-weight:700;text-decoration:none;}
   .industry-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
   .ind-item{background:var(--bg);border-radius:8px;padding:12px 14px;}
   .ind-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;}
-  .ind-row span:first-child{font-weight:700;font-size:13px;color:var(--navy);}
-  .ind-row span:last-child{font-weight:800;font-size:13px;color:var(--teal);}
+  .ind-row span:first-child{font-weight:700;font-size:13px;color:var(--navy);} .ind-row span:last-child{font-weight:800;font-size:13px;color:var(--teal);}
   .ind-note{margin:6px 0 0;font-size:11px;color:var(--muted);}
   .no-jobs{text-align:center;padding:40px;color:var(--muted);font-size:15px;}
-  @media(max-width:760px){
-    .strengths-grid,.two-col,.readiness-grid,.industry-grid,.kpi-grid{grid-template-columns:1fr;}
-  }
+  @media(max-width:760px){.strengths-grid,.two-col,.readiness-grid,.industry-grid,.kpi-grid{grid-template-columns:1fr;}}
 </style>
 </head>
 <body>
-
 <div class="header">
   <h1><span>GTA</span> Project Management Job Search</h1>
   <p>Hani Juzer, M.E, PMP, EIT &nbsp;·&nbsp; Toronto, ON</p>
-  <span class="update-badge">🔄 Auto-updated: Saturday, October 17 2026 at 23:04 UTC</span>
+  <span class="update-badge">🔄 Auto-updated: Saturday, October 17 2026 at 23:09 UTC</span>
 </div>
-
 <div class="nav" id="nav">
   <button class="active" data-tab="overview">📋 Resume Analysis</button>
-  <button data-tab="jobs">🎯 Live Jobs (0)</button>
-  <button data-tab="t1">🟢 Tier 1 (0)</button>
-  <button data-tab="t2">🟡 Tier 2 (0)</button>
-  <button data-tab="t3">🔵 Tier 3 (0)</button>
+  <button data-tab="jobs">🎯 Live Jobs (19)</button>
+  <button data-tab="t1">🟢 Tier 1 (2)</button>
+  <button data-tab="t2">🟡 Tier 2 (13)</button>
+  <button data-tab="t3">🔵 Tier 3 (4)</button>
   <button data-tab="dashboard">📊 Dashboard</button>
 </div>
-
 <div class="container">
 
-  <!-- OVERVIEW -->
   <div class="tabpanel active grid-gap" id="overview">
     <div class="card">
       <h3 class="section-head">Professional Strengths &amp; Competitive Advantages</h3>
@@ -140,31 +103,27 @@
     </div>
     <div class="card">
       <h3 class="section-head">Skills Gap Analysis</h3>
-      <table>
-        <thead><tr><th>Missing Skill / Credential</th><th>Urgency</th><th>Why It Matters</th></tr></thead>
-        <tbody>
-          <tr><td style="font-weight:600;color:var(--navy)">P.Eng. (Ontario)</td><td><span class="urgency u-High">High</span></td><td>EIT status is a stepping stone — PEO licensure unlocks 'Engineering PM' titles.</td></tr>
-          <tr><td style="font-weight:600;color:var(--navy)">Procore / Autodesk Construction Cloud</td><td><span class="urgency u-High">High</span></td><td>Appears in ~60% of GTA construction PM postings; not listed on resume.</td></tr>
-          <tr><td style="font-weight:600;color:var(--navy)">LEED / Sustainability Credential</td><td><span class="urgency u-Medium">Medium</span></td><td>Increasingly requested by developers and municipalities.</td></tr>
-          <tr><td style="font-weight:600;color:var(--navy)">Oracle Primavera Cloud / EPPM</td><td><span class="urgency u-Medium">Medium</span></td><td>Cloud scheduling tools are replacing on-prem P6 at larger firms.</td></tr>
-          <tr><td style="font-weight:600;color:var(--navy)">BIM Coordination Experience</td><td><span class="urgency u-Medium">Medium</span></td><td>Revit is listed but BIM coordination / clash detection not highlighted.</td></tr>
-          <tr><td style="font-weight:600;color:var(--navy)">FIDIC / NEC Contract Knowledge</td><td><span class="urgency u-Low">Low</span></td><td>Beneficial for P3 and infrastructure programs.</td></tr>
-        </tbody>
-      </table>
+      <table><thead><tr><th>Missing Skill / Credential</th><th>Urgency</th><th>Why It Matters</th></tr></thead>
+      <tbody>
+        <tr><td style="font-weight:600;color:var(--navy)">P.Eng. (Ontario)</td><td><span class="urgency u-High">High</span></td><td>EIT status is a stepping stone — PEO licensure unlocks 'Engineering PM' titles.</td></tr>
+        <tr><td style="font-weight:600;color:var(--navy)">Procore / Autodesk Construction Cloud</td><td><span class="urgency u-High">High</span></td><td>Appears in ~60% of GTA construction PM postings; not listed on resume.</td></tr>
+        <tr><td style="font-weight:600;color:var(--navy)">LEED / Sustainability Credential</td><td><span class="urgency u-Medium">Medium</span></td><td>Increasingly requested by developers and municipalities.</td></tr>
+        <tr><td style="font-weight:600;color:var(--navy)">Oracle Primavera Cloud / EPPM</td><td><span class="urgency u-Medium">Medium</span></td><td>Cloud scheduling tools are replacing on-prem P6 at larger firms.</td></tr>
+        <tr><td style="font-weight:600;color:var(--navy)">BIM Coordination Experience</td><td><span class="urgency u-Medium">Medium</span></td><td>Revit is listed but BIM coordination / clash detection not highlighted.</td></tr>
+        <tr><td style="font-weight:600;color:var(--navy)">FIDIC / NEC Contract Knowledge</td><td><span class="urgency u-Low">Low</span></td><td>Beneficial for P3 and infrastructure programs.</td></tr>
+      </tbody></table>
     </div>
     <div class="card">
       <h3 class="section-head">Market Positioning — GTA Salary &amp; Probability by Role</h3>
-      <table>
-        <thead><tr><th>Target Role</th><th>Career Level</th><th>Expected Salary (GTA)</th><th>Success Probability</th></tr></thead>
-        <tbody>
-          <tr><td style="font-weight:600;color:var(--navy)">Assistant Project Manager</td><td style="color:var(--muted)">Senior</td><td style="font-weight:700;color:var(--teal)">$90k – $115k</td><td><span class="prob p-VeryHigh">Very High</span></td></tr>
-          <tr><td style="font-weight:600;color:var(--navy)">Project Manager</td><td style="color:var(--muted)">Senior</td><td style="font-weight:700;color:var(--teal)">$110k – $145k</td><td><span class="prob p-High">High</span></td></tr>
-          <tr><td style="font-weight:600;color:var(--navy)">Construction Project Manager</td><td style="color:var(--muted)">Senior</td><td style="font-weight:700;color:var(--teal)">$115k – $155k</td><td><span class="prob p-High">High</span></td></tr>
-          <tr><td style="font-weight:600;color:var(--navy)">Project Coordinator</td><td style="color:var(--muted)">Lead</td><td style="font-weight:700;color:var(--teal)">$75k – $95k</td><td><span class="prob p-VeryHigh">Very High</span></td></tr>
-          <tr><td style="font-weight:600;color:var(--navy)">Project Controls Coordinator</td><td style="color:var(--muted)">Intermediate–Senior</td><td style="font-weight:700;color:var(--teal)">$85k – $115k</td><td><span class="prob p-High">High</span></td></tr>
-          <tr><td style="font-weight:600;color:var(--navy)">Project Scheduler</td><td style="color:var(--muted)">Senior</td><td style="font-weight:700;color:var(--teal)">$90k – $120k</td><td><span class="prob p-High">High</span></td></tr>
-        </tbody>
-      </table>
+      <table><thead><tr><th>Target Role</th><th>Career Level</th><th>Expected Salary (GTA)</th><th>Success Probability</th></tr></thead>
+      <tbody>
+        <tr><td style="font-weight:600;color:var(--navy)">Assistant Project Manager</td><td style="color:var(--muted)">Senior</td><td style="font-weight:700;color:var(--teal)">$90k – $115k</td><td><span class="prob p-VeryHigh">Very High</span></td></tr>
+        <tr><td style="font-weight:600;color:var(--navy)">Project Manager</td><td style="color:var(--muted)">Senior</td><td style="font-weight:700;color:var(--teal)">$110k – $145k</td><td><span class="prob p-High">High</span></td></tr>
+        <tr><td style="font-weight:600;color:var(--navy)">Construction Project Manager</td><td style="color:var(--muted)">Senior</td><td style="font-weight:700;color:var(--teal)">$115k – $155k</td><td><span class="prob p-High">High</span></td></tr>
+        <tr><td style="font-weight:600;color:var(--navy)">Project Coordinator</td><td style="color:var(--muted)">Lead</td><td style="font-weight:700;color:var(--teal)">$75k – $95k</td><td><span class="prob p-VeryHigh">Very High</span></td></tr>
+        <tr><td style="font-weight:600;color:var(--navy)">Project Controls Coordinator</td><td style="color:var(--muted)">Intermediate–Senior</td><td style="font-weight:700;color:var(--teal)">$85k – $115k</td><td><span class="prob p-High">High</span></td></tr>
+        <tr><td style="font-weight:600;color:var(--navy)">Project Scheduler</td><td style="color:var(--muted)">Senior</td><td style="font-weight:700;color:var(--teal)">$90k – $120k</td><td><span class="prob p-High">High</span></td></tr>
+      </tbody></table>
     </div>
     <div class="card">
       <h3 class="section-head">Role Readiness Assessment (out of 10)</h3>
@@ -181,53 +140,648 @@
     </div>
   </div>
 
-  <!-- ALL JOBS -->
   <div class="tabpanel" id="jobs">
     <div class="jobs-toolbar">
-      <h3>Live GTA PM Jobs — 0 Found · Sorted by Fit Score</h3>
+      <h3>Live GTA PM Jobs — 19 Found · Sorted by Fit Score</h3>
       <div style="font-size:12px;color:var(--muted);display:flex;gap:12px;">
-        <span style="color:var(--g1c)">🟢 ≥75 High</span>
-        <span style="color:var(--g2c)">🟡 60–74 Medium</span>
-        <span style="color:var(--g3c)">🔵 &lt;60 Stretch</span>
+        <span style="color:var(--g1c)">🟢 ≥65 Strong</span>
+        <span style="color:var(--g2c)">🟡 55–64 Good</span>
+        <span style="color:var(--g3c)">🔵 &lt;55 Stretch</span>
       </div>
     </div>
-    <div class="no-jobs">No jobs found in this tier for this update.</div>
+    <div class="card job-card">
+  <div class="job-top">
+    <div class="job-info">
+      <div class="job-title-row">
+        <span class="job-rank">#1</span>
+        <span class="job-title">Senior PM, Rail Signals & Communications</span>
+        <span class="tier-tag t1">Tier 1 – Strong Match</span>
+      </div>
+      <p class="job-meta">🏢 AECOM &nbsp;·&nbsp; 📍 Mississauga, ON &nbsp;·&nbsp; 🗓 Sep 23, 2026</p>
+    </div>
+    <div class="job-right">
+      <span class="score high">67/100</span>
+      <a class="apply-btn" href="https://to.indeed.com/aagr2gqpvvk4" target="_blank" rel="noopener noreferrer">Apply →</a>
+    </div>
+  </div>
+</div>
+<div class="card job-card">
+  <div class="job-top">
+    <div class="job-info">
+      <div class="job-title-row">
+        <span class="job-rank">#2</span>
+        <span class="job-title">Lead Program Scheduler</span>
+        <span class="tier-tag t1">Tier 1 – Strong Match</span>
+      </div>
+      <p class="job-meta">🏢 AtkinsRéalis &nbsp;·&nbsp; 📍 Toronto, ON &nbsp;·&nbsp; 🗓 Oct 13, 2026</p>
+    </div>
+    <div class="job-right">
+      <span class="score high">66/100</span>
+      <a class="apply-btn" href="https://to.indeed.com/aa9bk7m4lvfj" target="_blank" rel="noopener noreferrer">Apply →</a>
+    </div>
+  </div>
+</div>
+<div class="card job-card">
+  <div class="job-top">
+    <div class="job-info">
+      <div class="job-title-row">
+        <span class="job-rank">#3</span>
+        <span class="job-title">Construction Scheduling Coordinator</span>
+        <span class="tier-tag t2">Tier 2 – Good Match</span>
+      </div>
+      <p class="job-meta">🏢 Clearway Group &nbsp;·&nbsp; 📍 Greater Toronto Area, ON &nbsp;·&nbsp; 🗓 Jun 29, 2026</p>
+    </div>
+    <div class="job-right">
+      <span class="score med">61/100</span>
+      <a class="apply-btn" href="https://to.indeed.com/aatryqqgrm99" target="_blank" rel="noopener noreferrer">Apply →</a>
+    </div>
+  </div>
+</div>
+<div class="card job-card">
+  <div class="job-top">
+    <div class="job-info">
+      <div class="job-title-row">
+        <span class="job-rank">#4</span>
+        <span class="job-title">Scheduler II</span>
+        <span class="tier-tag t2">Tier 2 – Good Match</span>
+      </div>
+      <p class="job-meta">🏢 HDR &nbsp;·&nbsp; 📍 Toronto, ON &nbsp;·&nbsp; 🗓 Sep 17, 2026</p>
+    </div>
+    <div class="job-right">
+      <span class="score med">61/100</span>
+      <a class="apply-btn" href="https://to.indeed.com/aavnk6lhd7sl" target="_blank" rel="noopener noreferrer">Apply →</a>
+    </div>
+  </div>
+</div>
+<div class="card job-card">
+  <div class="job-top">
+    <div class="job-info">
+      <div class="job-title-row">
+        <span class="job-rank">#5</span>
+        <span class="job-title">Senior Construction Scheduler</span>
+        <span class="tier-tag t2">Tier 2 – Good Match</span>
+      </div>
+      <p class="job-meta">🏢 SSA Recruitment (CA) &nbsp;·&nbsp; 📍 Toronto, ON &nbsp;·&nbsp; 🗓 Sep 22, 2026</p>
+    </div>
+    <div class="job-right">
+      <span class="score med">60/100</span>
+      <a class="apply-btn" href="https://to.indeed.com/aaynl6f4lcys" target="_blank" rel="noopener noreferrer">Apply →</a>
+    </div>
+  </div>
+</div>
+<div class="card job-card">
+  <div class="job-top">
+    <div class="job-info">
+      <div class="job-title-row">
+        <span class="job-rank">#6</span>
+        <span class="job-title">Lead, Project Controls</span>
+        <span class="tier-tag t2">Tier 2 – Good Match</span>
+      </div>
+      <p class="job-meta">🏢 Torex Gold Resources &nbsp;·&nbsp; 📍 Toronto, ON &nbsp;·&nbsp; 🗓 Oct 16, 2026</p>
+    </div>
+    <div class="job-right">
+      <span class="score med">60/100</span>
+      <a class="apply-btn" href="https://to.indeed.com/aawv2zhnxwyg" target="_blank" rel="noopener noreferrer">Apply →</a>
+    </div>
+  </div>
+</div>
+<div class="card job-card">
+  <div class="job-top">
+    <div class="job-info">
+      <div class="job-title-row">
+        <span class="job-rank">#7</span>
+        <span class="job-title">Senior Design Coordinator</span>
+        <span class="tier-tag t2">Tier 2 – Good Match</span>
+      </div>
+      <p class="job-meta">🏢 Ghella Canada Ltd &nbsp;·&nbsp; 📍 Mississauga, ON &nbsp;·&nbsp; 🗓 Sep 15, 2026</p>
+    </div>
+    <div class="job-right">
+      <span class="score med">59/100</span>
+      <a class="apply-btn" href="https://to.indeed.com/aastml2jhzg9" target="_blank" rel="noopener noreferrer">Apply →</a>
+    </div>
+  </div>
+</div>
+<div class="card job-card">
+  <div class="job-top">
+    <div class="job-info">
+      <div class="job-title-row">
+        <span class="job-rank">#8</span>
+        <span class="job-title">Senior Project Manager, P3 Infrastructure</span>
+        <span class="tier-tag t2">Tier 2 – Good Match</span>
+      </div>
+      <p class="job-meta">🏢 Altus Group &nbsp;·&nbsp; 📍 Toronto, ON &nbsp;·&nbsp; 🗓 Aug 3, 2026</p>
+    </div>
+    <div class="job-right">
+      <span class="score med">58/100</span>
+      <a class="apply-btn" href="https://to.indeed.com/aa82zprkdcm7" target="_blank" rel="noopener noreferrer">Apply →</a>
+    </div>
+  </div>
+</div>
+<div class="card job-card">
+  <div class="job-top">
+    <div class="job-info">
+      <div class="job-title-row">
+        <span class="job-rank">#9</span>
+        <span class="job-title">Project Coordinator / Junior PM</span>
+        <span class="tier-tag t2">Tier 2 – Good Match</span>
+      </div>
+      <p class="job-meta">🏢 ROMAG Contracting Ltd. &nbsp;·&nbsp; 📍 Mississauga, ON &nbsp;·&nbsp; 🗓 Feb 27, 2026</p>
+    </div>
+    <div class="job-right">
+      <span class="score med">57/100</span>
+      <a class="apply-btn" href="https://to.indeed.com/aam4jpl7v4j8" target="_blank" rel="noopener noreferrer">Apply →</a>
+    </div>
+  </div>
+</div>
+<div class="card job-card">
+  <div class="job-top">
+    <div class="job-info">
+      <div class="job-title-row">
+        <span class="job-rank">#10</span>
+        <span class="job-title">Construction Project Manager</span>
+        <span class="tier-tag t2">Tier 2 – Good Match</span>
+      </div>
+      <p class="job-meta">🏢 D. Crupi & Sons Ltd. &nbsp;·&nbsp; 📍 Scarborough, ON &nbsp;·&nbsp; 🗓 Feb 3, 2026</p>
+    </div>
+    <div class="job-right">
+      <span class="score med">56/100</span>
+      <a class="apply-btn" href="https://to.indeed.com/aarrfdbzqphw" target="_blank" rel="noopener noreferrer">Apply →</a>
+    </div>
+  </div>
+</div>
+<div class="card job-card">
+  <div class="job-top">
+    <div class="job-info">
+      <div class="job-title-row">
+        <span class="job-rank">#11</span>
+        <span class="job-title">Pre-Construction & Pursuit Asst PM</span>
+        <span class="tier-tag t2">Tier 2 – Good Match</span>
+      </div>
+      <p class="job-meta">🏢 EllisDon Corporation &nbsp;·&nbsp; 📍 Mississauga, ON &nbsp;·&nbsp; 🗓 May 28, 2026</p>
+    </div>
+    <div class="job-right">
+      <span class="score med">56/100</span>
+      <a class="apply-btn" href="https://to.indeed.com/aakcpt7srfc2" target="_blank" rel="noopener noreferrer">Apply →</a>
+    </div>
+  </div>
+</div>
+<div class="card job-card">
+  <div class="job-top">
+    <div class="job-info">
+      <div class="job-title-row">
+        <span class="job-rank">#12</span>
+        <span class="job-title">Project Manager</span>
+        <span class="tier-tag t2">Tier 2 – Good Match</span>
+      </div>
+      <p class="job-meta">🏢 Michels &nbsp;·&nbsp; 📍 Toronto, ON &nbsp;·&nbsp; 🗓 Sep 10, 2026</p>
+    </div>
+    <div class="job-right">
+      <span class="score med">55/100</span>
+      <a class="apply-btn" href="https://to.indeed.com/aagkg6wbbb7f" target="_blank" rel="noopener noreferrer">Apply →</a>
+    </div>
+  </div>
+</div>
+<div class="card job-card">
+  <div class="job-top">
+    <div class="job-info">
+      <div class="job-title-row">
+        <span class="job-rank">#13</span>
+        <span class="job-title">Project Manager</span>
+        <span class="tier-tag t2">Tier 2 – Good Match</span>
+      </div>
+      <p class="job-meta">🏢 Aquatech Dewatering Company &nbsp;·&nbsp; 📍 Vaughan, ON &nbsp;·&nbsp; 🗓 Sep 23, 2026</p>
+    </div>
+    <div class="job-right">
+      <span class="score med">55/100</span>
+      <a class="apply-btn" href="https://to.indeed.com/aahfqcpjpgfd" target="_blank" rel="noopener noreferrer">Apply →</a>
+    </div>
+  </div>
+</div>
+<div class="card job-card">
+  <div class="job-top">
+    <div class="job-info">
+      <div class="job-title-row">
+        <span class="job-rank">#14</span>
+        <span class="job-title">Senior Project Manager</span>
+        <span class="tier-tag t2">Tier 2 – Good Match</span>
+      </div>
+      <p class="job-meta">🏢 Clearway Group &nbsp;·&nbsp; 📍 Greater Toronto Area, ON &nbsp;·&nbsp; 🗓 Jun 29, 2026</p>
+    </div>
+    <div class="job-right">
+      <span class="score med">55/100</span>
+      <a class="apply-btn" href="https://to.indeed.com/aatjb8qrz4v9" target="_blank" rel="noopener noreferrer">Apply →</a>
+    </div>
+  </div>
+</div>
+<div class="card job-card">
+  <div class="job-top">
+    <div class="job-info">
+      <div class="job-title-row">
+        <span class="job-rank">#15</span>
+        <span class="job-title">Contract Claims Coordinator</span>
+        <span class="tier-tag t2">Tier 2 – Good Match</span>
+      </div>
+      <p class="job-meta">🏢 Erritt Construction Ltd &nbsp;·&nbsp; 📍 Vaughan, ON &nbsp;·&nbsp; 🗓 Aug 12, 2026</p>
+    </div>
+    <div class="job-right">
+      <span class="score med">55/100</span>
+      <a class="apply-btn" href="https://to.indeed.com/aalwrqs27x2q" target="_blank" rel="noopener noreferrer">Apply →</a>
+    </div>
+  </div>
+</div>
+<div class="card job-card">
+  <div class="job-top">
+    <div class="job-info">
+      <div class="job-title-row">
+        <span class="job-rank">#16</span>
+        <span class="job-title">Design-Build Project Manager</span>
+        <span class="tier-tag t3">Tier 3 – Worth Applying</span>
+      </div>
+      <p class="job-meta">🏢 Avia NG Inc. &nbsp;·&nbsp; 📍 Richmond Hill, ON &nbsp;·&nbsp; 🗓 Oct 8, 2026</p>
+    </div>
+    <div class="job-right">
+      <span class="score low">54/100</span>
+      <a class="apply-btn" href="https://to.indeed.com/aa84w22xk29p" target="_blank" rel="noopener noreferrer">Apply →</a>
+    </div>
+  </div>
+</div>
+<div class="card job-card">
+  <div class="job-top">
+    <div class="job-info">
+      <div class="job-title-row">
+        <span class="job-rank">#17</span>
+        <span class="job-title">Assistant Project Manager</span>
+        <span class="tier-tag t3">Tier 3 – Worth Applying</span>
+      </div>
+      <p class="job-meta">🏢 SmartCentres &nbsp;·&nbsp; 📍 Vaughan, ON &nbsp;·&nbsp; 🗓 Jul 31, 2026</p>
+    </div>
+    <div class="job-right">
+      <span class="score low">53/100</span>
+      <a class="apply-btn" href="https://to.indeed.com/aazxmxqm74m4" target="_blank" rel="noopener noreferrer">Apply →</a>
+    </div>
+  </div>
+</div>
+<div class="card job-card">
+  <div class="job-top">
+    <div class="job-info">
+      <div class="job-title-row">
+        <span class="job-rank">#18</span>
+        <span class="job-title">Assistant Project Manager</span>
+        <span class="tier-tag t3">Tier 3 – Worth Applying</span>
+      </div>
+      <p class="job-meta">🏢 Mansteeel Rebar Ltd &nbsp;·&nbsp; 📍 Richmond Hill, ON &nbsp;·&nbsp; 🗓 Oct 15, 2026</p>
+    </div>
+    <div class="job-right">
+      <span class="score low">53/100</span>
+      <a class="apply-btn" href="https://to.indeed.com/aakd8fhdm2sp" target="_blank" rel="noopener noreferrer">Apply →</a>
+    </div>
+  </div>
+</div>
+<div class="card job-card">
+  <div class="job-top">
+    <div class="job-info">
+      <div class="job-title-row">
+        <span class="job-rank">#19</span>
+        <span class="job-title">Project Manager / Estimator</span>
+        <span class="tier-tag t3">Tier 3 – Worth Applying</span>
+      </div>
+      <p class="job-meta">🏢 Thompson Construction Group &nbsp;·&nbsp; 📍 Ontario &nbsp;·&nbsp; 🗓 Aug 28, 2026</p>
+    </div>
+    <div class="job-right">
+      <span class="score low">52/100</span>
+      <a class="apply-btn" href="https://to.indeed.com/aa4ptfyvd94c" target="_blank" rel="noopener noreferrer">Apply →</a>
+    </div>
+  </div>
+</div>
   </div>
 
-  <!-- TIER 1 -->
   <div class="tabpanel" id="t1">
-    <div class="jobs-toolbar"><h3>🟢 Tier 1 — High Probability (0 jobs)</h3></div>
-    <div class="no-jobs">No jobs found in this tier for this update.</div>
+    <div class="jobs-toolbar"><h3>🟢 Tier 1 — Strong Match (2 jobs)</h3></div>
+    <div class="card job-card">
+  <div class="job-top">
+    <div class="job-info">
+      <div class="job-title-row">
+        <span class="job-rank">#1</span>
+        <span class="job-title">Senior PM, Rail Signals & Communications</span>
+        <span class="tier-tag t1">Tier 1 – Strong Match</span>
+      </div>
+      <p class="job-meta">🏢 AECOM &nbsp;·&nbsp; 📍 Mississauga, ON &nbsp;·&nbsp; 🗓 Sep 23, 2026</p>
+    </div>
+    <div class="job-right">
+      <span class="score high">67/100</span>
+      <a class="apply-btn" href="https://to.indeed.com/aagr2gqpvvk4" target="_blank" rel="noopener noreferrer">Apply →</a>
+    </div>
   </div>
-
-  <!-- TIER 2 -->
+</div>
+<div class="card job-card">
+  <div class="job-top">
+    <div class="job-info">
+      <div class="job-title-row">
+        <span class="job-rank">#2</span>
+        <span class="job-title">Lead Program Scheduler</span>
+        <span class="tier-tag t1">Tier 1 – Strong Match</span>
+      </div>
+      <p class="job-meta">🏢 AtkinsRéalis &nbsp;·&nbsp; 📍 Toronto, ON &nbsp;·&nbsp; 🗓 Oct 13, 2026</p>
+    </div>
+    <div class="job-right">
+      <span class="score high">66/100</span>
+      <a class="apply-btn" href="https://to.indeed.com/aa9bk7m4lvfj" target="_blank" rel="noopener noreferrer">Apply →</a>
+    </div>
+  </div>
+</div>
+  </div>
   <div class="tabpanel" id="t2">
-    <div class="jobs-toolbar"><h3>🟡 Tier 2 — Medium Probability (0 jobs)</h3></div>
-    <div class="no-jobs">No jobs found in this tier for this update.</div>
+    <div class="jobs-toolbar"><h3>🟡 Tier 2 — Good Match (13 jobs)</h3></div>
+    <div class="card job-card">
+  <div class="job-top">
+    <div class="job-info">
+      <div class="job-title-row">
+        <span class="job-rank">#3</span>
+        <span class="job-title">Construction Scheduling Coordinator</span>
+        <span class="tier-tag t2">Tier 2 – Good Match</span>
+      </div>
+      <p class="job-meta">🏢 Clearway Group &nbsp;·&nbsp; 📍 Greater Toronto Area, ON &nbsp;·&nbsp; 🗓 Jun 29, 2026</p>
+    </div>
+    <div class="job-right">
+      <span class="score med">61/100</span>
+      <a class="apply-btn" href="https://to.indeed.com/aatryqqgrm99" target="_blank" rel="noopener noreferrer">Apply →</a>
+    </div>
   </div>
-
-  <!-- TIER 3 -->
+</div>
+<div class="card job-card">
+  <div class="job-top">
+    <div class="job-info">
+      <div class="job-title-row">
+        <span class="job-rank">#4</span>
+        <span class="job-title">Scheduler II</span>
+        <span class="tier-tag t2">Tier 2 – Good Match</span>
+      </div>
+      <p class="job-meta">🏢 HDR &nbsp;·&nbsp; 📍 Toronto, ON &nbsp;·&nbsp; 🗓 Sep 17, 2026</p>
+    </div>
+    <div class="job-right">
+      <span class="score med">61/100</span>
+      <a class="apply-btn" href="https://to.indeed.com/aavnk6lhd7sl" target="_blank" rel="noopener noreferrer">Apply →</a>
+    </div>
+  </div>
+</div>
+<div class="card job-card">
+  <div class="job-top">
+    <div class="job-info">
+      <div class="job-title-row">
+        <span class="job-rank">#5</span>
+        <span class="job-title">Senior Construction Scheduler</span>
+        <span class="tier-tag t2">Tier 2 – Good Match</span>
+      </div>
+      <p class="job-meta">🏢 SSA Recruitment (CA) &nbsp;·&nbsp; 📍 Toronto, ON &nbsp;·&nbsp; 🗓 Sep 22, 2026</p>
+    </div>
+    <div class="job-right">
+      <span class="score med">60/100</span>
+      <a class="apply-btn" href="https://to.indeed.com/aaynl6f4lcys" target="_blank" rel="noopener noreferrer">Apply →</a>
+    </div>
+  </div>
+</div>
+<div class="card job-card">
+  <div class="job-top">
+    <div class="job-info">
+      <div class="job-title-row">
+        <span class="job-rank">#6</span>
+        <span class="job-title">Lead, Project Controls</span>
+        <span class="tier-tag t2">Tier 2 – Good Match</span>
+      </div>
+      <p class="job-meta">🏢 Torex Gold Resources &nbsp;·&nbsp; 📍 Toronto, ON &nbsp;·&nbsp; 🗓 Oct 16, 2026</p>
+    </div>
+    <div class="job-right">
+      <span class="score med">60/100</span>
+      <a class="apply-btn" href="https://to.indeed.com/aawv2zhnxwyg" target="_blank" rel="noopener noreferrer">Apply →</a>
+    </div>
+  </div>
+</div>
+<div class="card job-card">
+  <div class="job-top">
+    <div class="job-info">
+      <div class="job-title-row">
+        <span class="job-rank">#7</span>
+        <span class="job-title">Senior Design Coordinator</span>
+        <span class="tier-tag t2">Tier 2 – Good Match</span>
+      </div>
+      <p class="job-meta">🏢 Ghella Canada Ltd &nbsp;·&nbsp; 📍 Mississauga, ON &nbsp;·&nbsp; 🗓 Sep 15, 2026</p>
+    </div>
+    <div class="job-right">
+      <span class="score med">59/100</span>
+      <a class="apply-btn" href="https://to.indeed.com/aastml2jhzg9" target="_blank" rel="noopener noreferrer">Apply →</a>
+    </div>
+  </div>
+</div>
+<div class="card job-card">
+  <div class="job-top">
+    <div class="job-info">
+      <div class="job-title-row">
+        <span class="job-rank">#8</span>
+        <span class="job-title">Senior Project Manager, P3 Infrastructure</span>
+        <span class="tier-tag t2">Tier 2 – Good Match</span>
+      </div>
+      <p class="job-meta">🏢 Altus Group &nbsp;·&nbsp; 📍 Toronto, ON &nbsp;·&nbsp; 🗓 Aug 3, 2026</p>
+    </div>
+    <div class="job-right">
+      <span class="score med">58/100</span>
+      <a class="apply-btn" href="https://to.indeed.com/aa82zprkdcm7" target="_blank" rel="noopener noreferrer">Apply →</a>
+    </div>
+  </div>
+</div>
+<div class="card job-card">
+  <div class="job-top">
+    <div class="job-info">
+      <div class="job-title-row">
+        <span class="job-rank">#9</span>
+        <span class="job-title">Project Coordinator / Junior PM</span>
+        <span class="tier-tag t2">Tier 2 – Good Match</span>
+      </div>
+      <p class="job-meta">🏢 ROMAG Contracting Ltd. &nbsp;·&nbsp; 📍 Mississauga, ON &nbsp;·&nbsp; 🗓 Feb 27, 2026</p>
+    </div>
+    <div class="job-right">
+      <span class="score med">57/100</span>
+      <a class="apply-btn" href="https://to.indeed.com/aam4jpl7v4j8" target="_blank" rel="noopener noreferrer">Apply →</a>
+    </div>
+  </div>
+</div>
+<div class="card job-card">
+  <div class="job-top">
+    <div class="job-info">
+      <div class="job-title-row">
+        <span class="job-rank">#10</span>
+        <span class="job-title">Construction Project Manager</span>
+        <span class="tier-tag t2">Tier 2 – Good Match</span>
+      </div>
+      <p class="job-meta">🏢 D. Crupi & Sons Ltd. &nbsp;·&nbsp; 📍 Scarborough, ON &nbsp;·&nbsp; 🗓 Feb 3, 2026</p>
+    </div>
+    <div class="job-right">
+      <span class="score med">56/100</span>
+      <a class="apply-btn" href="https://to.indeed.com/aarrfdbzqphw" target="_blank" rel="noopener noreferrer">Apply →</a>
+    </div>
+  </div>
+</div>
+<div class="card job-card">
+  <div class="job-top">
+    <div class="job-info">
+      <div class="job-title-row">
+        <span class="job-rank">#11</span>
+        <span class="job-title">Pre-Construction & Pursuit Asst PM</span>
+        <span class="tier-tag t2">Tier 2 – Good Match</span>
+      </div>
+      <p class="job-meta">🏢 EllisDon Corporation &nbsp;·&nbsp; 📍 Mississauga, ON &nbsp;·&nbsp; 🗓 May 28, 2026</p>
+    </div>
+    <div class="job-right">
+      <span class="score med">56/100</span>
+      <a class="apply-btn" href="https://to.indeed.com/aakcpt7srfc2" target="_blank" rel="noopener noreferrer">Apply →</a>
+    </div>
+  </div>
+</div>
+<div class="card job-card">
+  <div class="job-top">
+    <div class="job-info">
+      <div class="job-title-row">
+        <span class="job-rank">#12</span>
+        <span class="job-title">Project Manager</span>
+        <span class="tier-tag t2">Tier 2 – Good Match</span>
+      </div>
+      <p class="job-meta">🏢 Michels &nbsp;·&nbsp; 📍 Toronto, ON &nbsp;·&nbsp; 🗓 Sep 10, 2026</p>
+    </div>
+    <div class="job-right">
+      <span class="score med">55/100</span>
+      <a class="apply-btn" href="https://to.indeed.com/aagkg6wbbb7f" target="_blank" rel="noopener noreferrer">Apply →</a>
+    </div>
+  </div>
+</div>
+<div class="card job-card">
+  <div class="job-top">
+    <div class="job-info">
+      <div class="job-title-row">
+        <span class="job-rank">#13</span>
+        <span class="job-title">Project Manager</span>
+        <span class="tier-tag t2">Tier 2 – Good Match</span>
+      </div>
+      <p class="job-meta">🏢 Aquatech Dewatering Company &nbsp;·&nbsp; 📍 Vaughan, ON &nbsp;·&nbsp; 🗓 Sep 23, 2026</p>
+    </div>
+    <div class="job-right">
+      <span class="score med">55/100</span>
+      <a class="apply-btn" href="https://to.indeed.com/aahfqcpjpgfd" target="_blank" rel="noopener noreferrer">Apply →</a>
+    </div>
+  </div>
+</div>
+<div class="card job-card">
+  <div class="job-top">
+    <div class="job-info">
+      <div class="job-title-row">
+        <span class="job-rank">#14</span>
+        <span class="job-title">Senior Project Manager</span>
+        <span class="tier-tag t2">Tier 2 – Good Match</span>
+      </div>
+      <p class="job-meta">🏢 Clearway Group &nbsp;·&nbsp; 📍 Greater Toronto Area, ON &nbsp;·&nbsp; 🗓 Jun 29, 2026</p>
+    </div>
+    <div class="job-right">
+      <span class="score med">55/100</span>
+      <a class="apply-btn" href="https://to.indeed.com/aatjb8qrz4v9" target="_blank" rel="noopener noreferrer">Apply →</a>
+    </div>
+  </div>
+</div>
+<div class="card job-card">
+  <div class="job-top">
+    <div class="job-info">
+      <div class="job-title-row">
+        <span class="job-rank">#15</span>
+        <span class="job-title">Contract Claims Coordinator</span>
+        <span class="tier-tag t2">Tier 2 – Good Match</span>
+      </div>
+      <p class="job-meta">🏢 Erritt Construction Ltd &nbsp;·&nbsp; 📍 Vaughan, ON &nbsp;·&nbsp; 🗓 Aug 12, 2026</p>
+    </div>
+    <div class="job-right">
+      <span class="score med">55/100</span>
+      <a class="apply-btn" href="https://to.indeed.com/aalwrqs27x2q" target="_blank" rel="noopener noreferrer">Apply →</a>
+    </div>
+  </div>
+</div>
+  </div>
   <div class="tabpanel" id="t3">
-    <div class="jobs-toolbar"><h3>🔵 Tier 3 — Stretch Opportunities (0 jobs)</h3></div>
-    <div class="no-jobs">No jobs found in this tier for this update.</div>
+    <div class="jobs-toolbar"><h3>🔵 Tier 3 — Worth Applying (4 jobs)</h3></div>
+    <div class="card job-card">
+  <div class="job-top">
+    <div class="job-info">
+      <div class="job-title-row">
+        <span class="job-rank">#16</span>
+        <span class="job-title">Design-Build Project Manager</span>
+        <span class="tier-tag t3">Tier 3 – Worth Applying</span>
+      </div>
+      <p class="job-meta">🏢 Avia NG Inc. &nbsp;·&nbsp; 📍 Richmond Hill, ON &nbsp;·&nbsp; 🗓 Oct 8, 2026</p>
+    </div>
+    <div class="job-right">
+      <span class="score low">54/100</span>
+      <a class="apply-btn" href="https://to.indeed.com/aa84w22xk29p" target="_blank" rel="noopener noreferrer">Apply →</a>
+    </div>
+  </div>
+</div>
+<div class="card job-card">
+  <div class="job-top">
+    <div class="job-info">
+      <div class="job-title-row">
+        <span class="job-rank">#17</span>
+        <span class="job-title">Assistant Project Manager</span>
+        <span class="tier-tag t3">Tier 3 – Worth Applying</span>
+      </div>
+      <p class="job-meta">🏢 SmartCentres &nbsp;·&nbsp; 📍 Vaughan, ON &nbsp;·&nbsp; 🗓 Jul 31, 2026</p>
+    </div>
+    <div class="job-right">
+      <span class="score low">53/100</span>
+      <a class="apply-btn" href="https://to.indeed.com/aazxmxqm74m4" target="_blank" rel="noopener noreferrer">Apply →</a>
+    </div>
+  </div>
+</div>
+<div class="card job-card">
+  <div class="job-top">
+    <div class="job-info">
+      <div class="job-title-row">
+        <span class="job-rank">#18</span>
+        <span class="job-title">Assistant Project Manager</span>
+        <span class="tier-tag t3">Tier 3 – Worth Applying</span>
+      </div>
+      <p class="job-meta">🏢 Mansteeel Rebar Ltd &nbsp;·&nbsp; 📍 Richmond Hill, ON &nbsp;·&nbsp; 🗓 Oct 15, 2026</p>
+    </div>
+    <div class="job-right">
+      <span class="score low">53/100</span>
+      <a class="apply-btn" href="https://to.indeed.com/aakd8fhdm2sp" target="_blank" rel="noopener noreferrer">Apply →</a>
+    </div>
+  </div>
+</div>
+<div class="card job-card">
+  <div class="job-top">
+    <div class="job-info">
+      <div class="job-title-row">
+        <span class="job-rank">#19</span>
+        <span class="job-title">Project Manager / Estimator</span>
+        <span class="tier-tag t3">Tier 3 – Worth Applying</span>
+      </div>
+      <p class="job-meta">🏢 Thompson Construction Group &nbsp;·&nbsp; 📍 Ontario &nbsp;·&nbsp; 🗓 Aug 28, 2026</p>
+    </div>
+    <div class="job-right">
+      <span class="score low">52/100</span>
+      <a class="apply-btn" href="https://to.indeed.com/aa4ptfyvd94c" target="_blank" rel="noopener noreferrer">Apply →</a>
+    </div>
+  </div>
+</div>
   </div>
 
-  <!-- DASHBOARD -->
   <div class="tabpanel grid-gap" id="dashboard">
     <div class="kpi-grid">
-      <div class="card kpi-card"><div class="icon">🎯</div><div class="val">0</div><div class="lbl">Live Opportunities</div></div>
-      <div class="card kpi-card"><div class="icon">🟢</div><div class="val">0</div><div class="lbl">High Probability</div></div>
-      <div class="card kpi-card"><div class="icon">📈</div><div class="val">0%</div><div class="lbl">Avg Fit Score</div></div>
+      <div class="card kpi-card"><div class="icon">🎯</div><div class="val">19</div><div class="lbl">Live Opportunities</div></div>
+      <div class="card kpi-card"><div class="icon">🟢</div><div class="val">2</div><div class="lbl">Strong Match</div></div>
+      <div class="card kpi-card"><div class="icon">📈</div><div class="val">58%</div><div class="lbl">Avg Fit Score</div></div>
       <div class="card kpi-card"><div class="icon">📬</div><div class="val">7–10</div><div class="lbl">Apply This Week</div></div>
     </div>
     <div class="card">
       <h3 class="section-head">Top 10 Priority Applications</h3>
-      <div style="overflow-x:auto">
-        <table>
-          <thead><tr><th>#</th><th>Position</th><th>Company</th><th>Fit Score</th><th>Action</th></tr></thead>
-          <tbody></tbody>
-        </table>
-      </div>
+      <div style="overflow-x:auto"><table>
+        <thead><tr><th>#</th><th>Position</th><th>Company</th><th>Fit Score</th><th>Action</th></tr></thead>
+        <tbody><tr><td style="font-weight:800;color:var(--accent)">#1</td><td style="font-weight:600;color:var(--navy)">Senior PM, Rail Signals & Communications</td><td style="color:var(--muted)">AECOM</td><td><span class="score high">67/100</span></td><td><a href="https://to.indeed.com/aagr2gqpvvk4" target="_blank" style="color:var(--accent);font-weight:700;font-size:12px;text-decoration:none">Apply →</a></td></tr><tr><td style="font-weight:800;color:var(--accent)">#2</td><td style="font-weight:600;color:var(--navy)">Lead Program Scheduler</td><td style="color:var(--muted)">AtkinsRéalis</td><td><span class="score high">66/100</span></td><td><a href="https://to.indeed.com/aa9bk7m4lvfj" target="_blank" style="color:var(--accent);font-weight:700;font-size:12px;text-decoration:none">Apply →</a></td></tr><tr><td style="font-weight:800;color:var(--accent)">#3</td><td style="font-weight:600;color:var(--navy)">Construction Scheduling Coordinator</td><td style="color:var(--muted)">Clearway Group</td><td><span class="score med">61/100</span></td><td><a href="https://to.indeed.com/aatryqqgrm99" target="_blank" style="color:var(--accent);font-weight:700;font-size:12px;text-decoration:none">Apply →</a></td></tr><tr><td style="font-weight:800;color:var(--accent)">#4</td><td style="font-weight:600;color:var(--navy)">Scheduler II</td><td style="color:var(--muted)">HDR</td><td><span class="score med">61/100</span></td><td><a href="https://to.indeed.com/aavnk6lhd7sl" target="_blank" style="color:var(--accent);font-weight:700;font-size:12px;text-decoration:none">Apply →</a></td></tr><tr><td style="font-weight:800;color:var(--accent)">#5</td><td style="font-weight:600;color:var(--navy)">Senior Construction Scheduler</td><td style="color:var(--muted)">SSA Recruitment (CA)</td><td><span class="score med">60/100</span></td><td><a href="https://to.indeed.com/aaynl6f4lcys" target="_blank" style="color:var(--accent);font-weight:700;font-size:12px;text-decoration:none">Apply →</a></td></tr><tr><td style="font-weight:800;color:var(--accent)">#6</td><td style="font-weight:600;color:var(--navy)">Lead, Project Controls</td><td style="color:var(--muted)">Torex Gold Resources</td><td><span class="score med">60/100</span></td><td><a href="https://to.indeed.com/aawv2zhnxwyg" target="_blank" style="color:var(--accent);font-weight:700;font-size:12px;text-decoration:none">Apply →</a></td></tr><tr><td style="font-weight:800;color:var(--accent)">#7</td><td style="font-weight:600;color:var(--navy)">Senior Design Coordinator</td><td style="color:var(--muted)">Ghella Canada Ltd</td><td><span class="score med">59/100</span></td><td><a href="https://to.indeed.com/aastml2jhzg9" target="_blank" style="color:var(--accent);font-weight:700;font-size:12px;text-decoration:none">Apply →</a></td></tr><tr><td style="font-weight:800;color:var(--accent)">#8</td><td style="font-weight:600;color:var(--navy)">Senior Project Manager, P3 Infrastructure</td><td style="color:var(--muted)">Altus Group</td><td><span class="score med">58/100</span></td><td><a href="https://to.indeed.com/aa82zprkdcm7" target="_blank" style="color:var(--accent);font-weight:700;font-size:12px;text-decoration:none">Apply →</a></td></tr><tr><td style="font-weight:800;color:var(--accent)">#9</td><td style="font-weight:600;color:var(--navy)">Project Coordinator / Junior PM</td><td style="color:var(--muted)">ROMAG Contracting Ltd.</td><td><span class="score med">57/100</span></td><td><a href="https://to.indeed.com/aam4jpl7v4j8" target="_blank" style="color:var(--accent);font-weight:700;font-size:12px;text-decoration:none">Apply →</a></td></tr><tr><td style="font-weight:800;color:var(--accent)">#10</td><td style="font-weight:600;color:var(--navy)">Construction Project Manager</td><td style="color:var(--muted)">D. Crupi & Sons Ltd.</td><td><span class="score med">56/100</span></td><td><a href="https://to.indeed.com/aarrfdbzqphw" target="_blank" style="color:var(--accent);font-weight:700;font-size:12px;text-decoration:none">Apply →</a></td></tr></tbody>
+      </table></div>
     </div>
     <div class="two-col">
       <div class="card">
@@ -267,7 +821,6 @@
   </div>
 
 </div>
-
 <script>
 document.querySelectorAll(".nav button").forEach(btn => {
   btn.addEventListener("click", () => {
@@ -275,13 +828,6 @@ document.querySelectorAll(".nav button").forEach(btn => {
     document.querySelectorAll(".tabpanel").forEach(p => p.classList.remove("active"));
     btn.classList.add("active");
     document.getElementById(btn.dataset.tab).classList.add("active");
-  });
-});
-document.querySelectorAll(".job-card").forEach(card => {
-  const btn = card.querySelector(".toggle-btn");
-  if (btn) btn.addEventListener("click", () => {
-    card.classList.toggle("open");
-    btn.textContent = card.classList.contains("open") ? "▲ Less" : "▼ Details";
   });
 });
 </script>
